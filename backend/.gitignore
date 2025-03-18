@@ -1,0 +1,6 @@
+# Ignore python cache files
+__pycache__/
+
+# Ignore images
+uploads/
+*.jpg

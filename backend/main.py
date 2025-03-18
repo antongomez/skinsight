@@ -2,9 +2,13 @@ import shutil, os
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from model import SimpleCNN
 
 app = FastAPI()
+
+# Mount the uploads folder to serve the uploaded images
+app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 app.add_middleware(
     CORSMiddleware,
@@ -24,6 +28,9 @@ cnn.create_model()
 
 # Train the model (maybe this can be done before starting the server)
 # cnn.train(X_train, y_train, X_val, y_val, epochs=10, batch_size=32)
+
+# Initialize an array to store the classified images and their probabilities
+classified_images = []
 
 
 @app.get("/")
@@ -50,11 +57,25 @@ async def upload_image(file: UploadFile = File(...)):
         print(f"INFO - Class index: {class_idx}")
         print(f"INFO - Probabilities: {probabilities}")
 
+        # Construct the image URL
+        image_url = f"/uploads/{file.filename}"
+
+        # Store the classified image and its probabilities
+        classified_images.append(
+            {"image_url": image_url, "class_idx": int(class_idx), "probabilities": probabilities.tolist()}
+        )
+
         return JSONResponse(
-            content={"class_idx": int(class_idx), "probabilities": probabilities.tolist()},
+            content={"image_url": image_url, "class_idx": int(class_idx), "probabilities": probabilities.tolist()},
             status_code=200,
         )
 
     except Exception as e:
         print(f"ERROR - {e}")
         return JSONResponse(content={"error": str(e)}, status_code=500)
+
+
+@app.get("/previous-classifications")
+async def get_classified_images():
+    """Endpoint to get the classified images"""
+    return JSONResponse(content=classified_images, status_code=200)

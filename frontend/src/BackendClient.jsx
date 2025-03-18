@@ -8,7 +8,6 @@ export default class BackendClient {
     if (!response.ok) throw new Error("Error: Could not connect to the server");
 
     const res = await response.json();
-    console.log("Server response", res.message);
 
     return res.message;
   }
@@ -28,8 +27,18 @@ export default class BackendClient {
       throw new Error("Error: Could not send the image to the server");
 
     const classificationResult = await response.json();
-    console.log("Image URL", classificationResult);
 
     return classificationResult;
+  }
+
+  async getPreviousClassifications() {
+    const response = await fetch(`${this.apiBaseUrl}/previous-classifications`);
+    if (!response.ok)
+      throw new Error("Error: Could not get the previous classifications");
+
+    const previousClassifications = await response.json();
+    console.log("Previous classifications", previousClassifications);
+
+    return previousClassifications;
   }
 }
