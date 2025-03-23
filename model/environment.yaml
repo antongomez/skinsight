@@ -11,4 +11,7 @@ dependencies:
   - pandas
   - seaborn
   - scikit-learn
+  - fastapi
+  - uvicorn
+  - python-multipart
   - pip

@@ -1,13 +1,17 @@
-name: skinsight_env
+name: skinsight-env
 channels:
-  - conda-forge
   - defaults
 dependencies:
-  - python=3.9
   - tensorflow
-  - keras
   - numpy
+  - pillow
+  - ipykernel
+  - notebook
+  - matplotlib
+  - pandas
+  - seaborn
+  - scikit-learn
   - fastapi
   - uvicorn
   - python-multipart
-  - pillow
+  - pip
