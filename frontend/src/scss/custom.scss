@@ -1,0 +1,58 @@
+@import "colors.scss";
+
+@import "bootstrap/scss/bootstrap.scss";
+
+// Add more clases to heigh relative to viewport height
+$sizes-vh: (
+  25: 25vh,
+  50: 50vh,
+  75: 75vh,
+);
+
+@each $size, $length in $sizes-vh {
+  .vh-#{$size} {
+    height: $length !important;
+  }
+}
+
+// Add more clases to min-height relative to viewport height
+$sizes-mw: (
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%,
+);
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @each $size, $length in $sizes-mw {
+    @include media-breakpoint-up($breakpoint) {
+      .mw-#{$breakpoint}-#{$size} {
+        max-width: $length !important;
+      }
+    }
+
+    .mw-#{$size} {
+      max-width: $length !important;
+    }
+  }
+}
+
+// Add more clases to min-height relative to viewport height
+$sizes: (
+  25: 25vh,
+  50: 50vh,
+  75: 75vh,
+  100: 100vh,
+);
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @each $size, $length in $sizes {
+    @include media-breakpoint-up($breakpoint) {
+      .min-vh-#{$breakpoint}-#{$size} {
+        min-height: $length !important;
+      }
+    }
+
+    .min-vh-#{$size} {
+      min-height: $length !important;
+    }
+  }
+}
