@@ -1,12 +1,11 @@
 import tensorflow as tf
 import numpy as np
-from tensorflow.keras.preprocessing import image
 
 
 class SkinSightModel:
 
     def __init__(self, dir_models="models", model_name="best_model", img_size=(256, 256)):
-        self.input_shape = img_size
+        self.img_size = img_size
         self.model = tf.keras.models.load_model(f"{dir_models}/{model_name}.keras")
 
     def predict(self, filepath):

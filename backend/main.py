@@ -7,6 +7,10 @@ from model import SkinSightModel
 
 app = FastAPI()
 
+# Folder to save the uploaded images
+UPLOAD_FOLDER = "uploads"
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
 # Mount the uploads folder to serve the uploaded images
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
@@ -17,10 +21,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# Folder to save the uploaded images
-UPLOAD_FOLDER = "uploads"
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Load the model
 model = SkinSightModel(dir_models="models", model_name="best_model", img_size=(256, 256))
