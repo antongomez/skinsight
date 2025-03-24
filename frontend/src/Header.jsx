@@ -9,7 +9,7 @@ export const Header = () => {
       className="border-bottom border-1 border-light"
     >
       <Container>
-        <Navbar.Brand href="#">
+        <Navbar.Brand href="/">
           <img
             alt=""
             src="/logo.svg"

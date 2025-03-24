@@ -10,6 +10,39 @@ This repository includes:
 
 ---
 
+## 📸 Demo
+
+The following screenshots illustrate the process of uploading an image, sending it to the backend for processing, and receiving classification results. Additionally, once an image is classified, you can view the history of previous classification results.
+
+<div style="display: flex; justify-content:center; text-align:center">
+  <div style="width: 20%">
+    <img src="screenshots/screenshot_1.png" alt="Screenshot of the welcome section" width="100%" />
+  </div>
+  <div style="width: 20%">
+    <img src="screenshots/screenshot_2.png" alt="Upload an image to the frontend" />
+  </div>
+  <div style="width: 20%">
+    <img src="screenshots/screenshot_3.png" alt="Send the image to the backend and wait for the results" />
+  </div>
+  <div style="width: 20%">
+    <img src="screenshots/screenshot_4.png" alt="See the classification result" />
+  </div>
+  <div style="width: 20%">
+    <img src="screenshots/screenshot_5.png" alt="See previous classification results" />
+  </div>
+</div>
+
+You can also watch a video demonstration of the application:
+
+<div style="display:flex; justify-content: center; text-align: center;">
+    <video  width="50%" controls>
+        <source src="screenshots/demo_skinsight.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+    </video>
+</div>
+
+---
+
 ## 🧑‍⚕️ Model
 
 The trained model is a **Convolutional Neural Network (CNN)** trained on the [Skin Diseases Image Dataset](https://www.kaggle.com/datasets/ismailpromus/skin-diseases-image-dataset). While the original dataset contains 10 classes, we have simplified it to focus on **three key conditions**:
