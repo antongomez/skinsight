@@ -97,7 +97,7 @@ export const App = () => {
           An AI-powered mobile application to classify skin images
         </p>
       </Container>
-      {!classificationResult && (
+      {!awaitingResponse && !classificationResult && (
         <Container fluid className="mt-5 px-3 px-md-5 mw-xl-50 text-center">
           <Card className="border-rounded border-lighter-dark-2 bg-lighter-dark text-white">
             <Card.Body>
@@ -249,7 +249,7 @@ export const App = () => {
                           <h5>Probabilities</h5>
                           {classification.probabilities.map((prob, index) => (
                             <p key={index} className="mb-1">
-                              <span className="fw-bolder">
+                              <span className="fw-bolder text-capitalize">
                                 {classLabels[index]}
                               </span>
                               : {(prob * 100).toFixed(2)}%
