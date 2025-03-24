@@ -2,6 +2,21 @@
 
 @import "bootstrap/scss/bootstrap.scss";
 
+$lighter-dark: mix($white, $dark, 1%);
+$lighter-dark-2: mix($white, $dark, 25%);
+
+.bg-lighter-dark {
+  background-color: $lighter-dark;
+}
+
+.border-lighter-dark-2 {
+  border-color: $lighter-dark-2 !important;
+}
+
+.row-border-bottom:not(:last-child) {
+  border-bottom: 1px solid $lighter-dark-2 !important;
+}
+
 // Add more clases to heigh relative to viewport height
 $sizes-vh: (
   25: 25vh,
