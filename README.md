@@ -15,7 +15,7 @@ This repository includes:
 The following screenshots illustrate the process of uploading an image, sending it to the backend for processing, and receiving classification results. Additionally, once an image is classified, you can view the history of previous classification results.
 
 | ![Screenshot 1](screenshots/screenshot_1.png) | ![Screenshot 2](screenshots/screenshot_2.png) | ![Screenshot 3](screenshots/screenshot_3.png) | ![Screenshot 4](screenshots/screenshot_4.png) | ![Screenshot 5](screenshots/screenshot_5.png) |
-|---|---|---|---|---|
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
 
 You can also watch a video demonstration of the application:
 
